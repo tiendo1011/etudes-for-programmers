@@ -1,17 +1,16 @@
-require File.expand_path("game_of_life/ver2/game_of_life.rb", __dir__)
+require File.expand_path("game_of_life.rb", __dir__)
 
 board = Board.create(11)
+board.current_state
+
 board.put_cell_to_position(6, 4)
 board.put_cell_to_position(6, 5)
 board.put_cell_to_position(6, 6)
 board.put_cell_to_position(6, 7)
 board.put_cell_to_position(6, 8)
+board.current_state
 
-puts "first generation"
-puts board.to_s
-
-9.times do |i|
-  puts "generation: #{i+2}"
+(1..9).each do
   board.tick
-  puts board.to_s
+  board.current_state
 end
